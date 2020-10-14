@@ -1,0 +1,112 @@
+import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib
+
+%matplotlib inline
+def track_eagle(make_figs=True):
+    long = np.random.radint(-10,10, size=3)
+    
+    lat = np.random.randint(-10,10, size=3)
+    
+    dist1 = 10
+    
+    dist2 = 10
+    dist3 = 10 
+    
+    dist_total = 10 
+    
+    disp = 10
+    alpha = 10**-6
+    theta = 10
+    theta = np.degrees(theta)
+    
+    plt.figure(figsize=(10,10))
+    plt.title('Philippine Eagle Flight Plotter')
+    plt.xlim(-30, 30)
+    plt.ylim(-30, 30)
+    plt.xlabel('Latitudinal Distance')
+    plt.ylabel('Longitudinal Distance')
+    plt.grid()
+    n = 4
+    
+    plt.quiver(0,0, dist1[0], dist1[1],
+               angles='xy', scale_units='xy' ,scale=1, color='blue',
+               label='Trajectory 1: {:.2f}m.'.format(np.linalg.norm(dist1)))
+    plt.quiver(dist1[0], dist1[1], dist2[0], dist2[1],
+               angles='xy', scale_units='xy' ,scale=1, color='red'
+               label='Trajectory 2: {:.2f}m.'.format(np.linalg.norm(dist2)))
+    plt.quiver(np.add(dist1[0],dist2[0], np.add(dist1[1],dist2[1],
+                dist3[0], dist3[1], angles='xy', scale_units='xy' ,scale=1, color='green'
+            label='Trajectory 3: {:.2f}m'.format(np.linalg.norm(dist3)))
+    plt.quiver(0,0, dist_total[0], dist_total[1],
+               angles='xy', scale_units='xy' ,scale=1, color='orange',
+            label='Displacement: {:.2f}m. @ {:.2f}'.format(disp, theta))
+                      
+            plt.legend()
+                      
+            if make_figs:
+                      plt.savefig(f'Linalg-Lab2-PH Eagle-{int(disp)})@{int(theta)}.png', dpi=300)
+                      
+                      
+                      plt.show()
+                      track_eagle(make_figs=True)
+                      def eagle_kinematics(s, t):
+    req_shape = 4
+    v = np.zeros((req_shape-1,))
+    a = np.zeros((req-shape-2,))
+    t_vect = np.array([t**3, t**2, t, 1])
+    if s.shape == (req_shape, ):
+        v = np.array([3*s[0], 2*s[1], s[2]])
+        a = np.array([2*v[0],v[1]])
+        s_t = np.sum(np.multiply(s, t_vect))
+        v_t = np.sum(np.multiply(v, t_vect[1:]))
+        a_t = np.sum(np.multiply(a, t_vect[2:]))
+        
+    else
+        print(f'Input displacement vector is not valid. Make sure that the vector shape is ({req_shape},)')
+              
+            return s_t, v_t, a_t
+            x = np.array([2,1,3,2])
+t = 2
+eagle_kinematics(x,y)
+def month_profit_trace(profit, reach, make_figs=True):
+    
+    if (profit.shape == (4,)) and (revenue.shape == (4,)):
+        week1 = np.array((reach[0], profit[0]))
+        week2 = 10
+        week3 = 10
+        week4 = 10
+        
+        week_total = 10
+        week_performance = 10
+        alpha = 10
+        reach_gradient = 10 
+        
+        plt.figure(figsize=(16,5))
+        plt.title('Bebang\'s Month Post Efficiency' )
+        plt.xlim(0,1.01*np.sum(reach))
+        plt.ylim(-np.sum(np.abs(profit)), np.sum)(np.abs(profit)))
+        plt.xlabel('FB Post Reach Increment')
+        plt.ylabel('Profit')
+        plt.grid()
+        n = 2
+        
+        plt.quiver(0,0, week1[0], week1[1],
+                   angles='xy', scale_units='xy' ,scale=1, color='yellowgreen', width=0.0025
+                   label='Week 1: {:.2f}'.format(np.linalg.norm(week1)))
+                   plt.quiver(0,0, week_total[0], week_total[1]),
+                    angles='xy', scale_units='xy' ,scale=1, color='red', width=0.005,
+                    label='Efficiency: {:.2f} @ {:.2f}'.format(week_performance, reach_gradient)
+                
+                plt.legend(loc= 'upper left')
+                
+                if make_figs:
+                    plt.savefig(f'LinAlg-Lab2-Bebang Post Eff- {int(week_performance)}@{int(reach_gradient)}.png', dpi=300)
+                    
+                    plt.show
+                    
+                    else:
+                        print('Dimension error')
+                        profit= np.array([-18000, 3000, 12000, 10000])
+reach = np.array([1000, 100, 500, 10])
+month_profit_trace(profit, reach, make_figs=False)
